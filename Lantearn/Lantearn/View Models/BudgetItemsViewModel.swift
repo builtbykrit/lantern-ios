@@ -12,8 +12,17 @@ class BudgetItemsViewModel {
     
     var dataSource: [BudgetItem]
     var budgetRow: BudgetRow
+    
+    //MARK: Init
+    
     init(budgetRow: BudgetRow, dataSource: [BudgetItem]) {
         self.budgetRow = budgetRow
         self.dataSource = dataSource
+    }
+    
+    //MARK: UITableViewDataSource
+    
+    func numberOfRows() -> Int {
+        return dataSource.count
     }
 }
