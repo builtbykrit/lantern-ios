@@ -49,40 +49,48 @@ class HomeViewModelTests: XCTestCase {
         XCTAssertEqual(0, numRows)
     }
     
+    //TODO: Set income and expenses datasource and test values
+    
     func testRowTextMonthlyExpensesForIndexPath() {
         let indexPath = IndexPath(row: BudgetRow.monthlyExpenses.rawValue, section: HomeSection.budget.rawValue)
-        let text = viewModel.rowTextForIndexPath(indexPath)
-        XCTAssertEqual("Monthly Expenses", text)
+        let data = viewModel.rowDataForIndexPath(indexPath)
+        XCTAssertEqual("Monthly Expenses", data.name)
+        XCTAssertEqual("0", data.value)
     }
     
     func testRowTextMonthlyIncomeForIndexPath() {
         let indexPath = IndexPath(row: BudgetRow.monthlyIncome.rawValue, section: HomeSection.budget.rawValue)
-        let text = viewModel.rowTextForIndexPath(indexPath)
-        XCTAssertEqual("Monthly Income", text)
+        let data = viewModel.rowDataForIndexPath(indexPath)
+        XCTAssertEqual("Monthly Income", data.name)
+        XCTAssertEqual("0", data.value)
     }
     
     func testRowText3MonthsForIndexPath() {
         let indexPath = IndexPath(row: ForecastRow.threeMonths.rawValue, section: HomeSection.forecast.rawValue)
-        let text = viewModel.rowTextForIndexPath(indexPath)
-        XCTAssertEqual("3 Months", text)
+        let data = viewModel.rowDataForIndexPath(indexPath)
+        XCTAssertEqual("3 Months", data.name)
+        XCTAssertEqual("0", data.value)
     }
     
     func testRowText6MonthsForIndexPath() {
         let indexPath = IndexPath(row: ForecastRow.sixMonths.rawValue, section: HomeSection.forecast.rawValue)
-        let text = viewModel.rowTextForIndexPath(indexPath)
-        XCTAssertEqual("6 Months", text)
+        let data = viewModel.rowDataForIndexPath(indexPath)
+        XCTAssertEqual("6 Months", data.name)
+        XCTAssertEqual("0", data.value)
     }
     
     func testRowText12MonthsForIndexPath() {
         let indexPath = IndexPath(row: ForecastRow.twelveMonths.rawValue, section: HomeSection.forecast.rawValue)
-        let text = viewModel.rowTextForIndexPath(indexPath)
-        XCTAssertEqual("12 Months", text)
+        let data = viewModel.rowDataForIndexPath(indexPath)
+        XCTAssertEqual("12 Months", data.name)
+        XCTAssertEqual("0", data.value)
     }
     
     func testRowTextInvalidForIndexPath() {
         let indexPath = IndexPath(row: 5, section: 4)
-        let text = viewModel.rowTextForIndexPath(indexPath)
-        XCTAssertEqual("", text)
+        let data = viewModel.rowDataForIndexPath(indexPath)
+        XCTAssertEqual("Item", data.name)
+        XCTAssertEqual("0", data.value)
     }
     
     //MARK: UITableViewDelegate

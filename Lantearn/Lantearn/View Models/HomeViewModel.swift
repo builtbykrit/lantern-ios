@@ -39,7 +39,7 @@ struct RowData {
 
 class HomeViewModel {
     
-    fileprivate var forecast:Forecast
+    fileprivate var forecast:Forecast = Forecast()
     
     fileprivate var cashFlow:Int {
         get {

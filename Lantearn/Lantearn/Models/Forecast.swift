@@ -14,6 +14,12 @@ struct Forecast {
     var sixMonths: Int
     var tweleveMonths: Int
     
+    init() {
+        self.threeMonths = 0
+        self.sixMonths = 0
+        self.tweleveMonths = 0
+    }
+    
     init(cashFlow: Int) {
         threeMonths = cashFlow * 3
         sixMonths = cashFlow * 6
