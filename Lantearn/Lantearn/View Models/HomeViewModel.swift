@@ -39,6 +39,7 @@ class HomeViewModel {
         return income - expense
     }
     
+    var selectedBudgetRow: BudgetRow?
     var expenseDataSource: [Expense]
     var incomeDataSource: [Income]
     
@@ -50,16 +51,15 @@ class HomeViewModel {
     //MARK: UITableViewDataSource
     
     func numberOfRowsInSection(_ section: Int) -> Int {
-        if let section = HomeSection(rawValue: section) {
-            switch section {
-            case .budget:
-                return BudgetRow.enumerate.count
-            case .forecast:
-                return ForecastRow.enumerate.count
-            }
+        guard let section = HomeSection(rawValue: section) else {
+            return 0
         }
-        
-        return 0
+        switch section {
+        case .budget:
+            return BudgetRow.enumerate.count
+        case .forecast:
+            return ForecastRow.enumerate.count
+        }
     }
     
     func numberOfSections() -> Int {
@@ -69,44 +69,71 @@ class HomeViewModel {
     //MARK: UITableViewDelegate
     
     func rowTextForIndexPath(_ indexPath: IndexPath) -> String {
-        if let section = HomeSection(rawValue: indexPath.section) {
-            switch section {
-            case .budget:
-                if let row = BudgetRow(rawValue: indexPath.row) {
-                    switch row {
-                    case .monthlyExpenses:
-                        return NSLocalizedString("home.budget.expenses", comment: "")
-                    case .monthlyIncome:
-                        return NSLocalizedString("home.budget.income", comment: "")
-                    }
-                }
-            case .forecast:
-                if let row = ForecastRow(rawValue: indexPath.row) {
-                    switch row {
-                    case .threeMonths:
-                        return NSLocalizedString("home.forecast.three", comment: "")
-                    case .sixMonths:
-                        return NSLocalizedString("home.forecast.six", comment: "")
-                    case .twelveMonths:
-                        return NSLocalizedString("home.forecast.twelve", comment: "")
-                    }
-                }
+        guard let section = HomeSection(rawValue: indexPath.section) else {
+            return ""
+        }
+        switch section {
+        case .budget:
+            guard let row = BudgetRow(rawValue: indexPath.row) else {
+                return ""
+            }
+            switch row {
+            case .monthlyExpenses:
+                return NSLocalizedString("home.budget.expenses", comment: "")
+            case .monthlyIncome:
+                return NSLocalizedString("home.budget.income", comment: "")
+            }
+        case .forecast:
+            guard let row = ForecastRow(rawValue: indexPath.row) else {
+                return ""
+            }
+            switch row {
+            case .threeMonths:
+                return NSLocalizedString("home.forecast.three", comment: "")
+            case .sixMonths:
+                return NSLocalizedString("home.forecast.six", comment: "")
+            case .twelveMonths:
+                return NSLocalizedString("home.forecast.twelve", comment: "")
             }
         }
-        
-        return ""
     }
     
+    
     func headerTextForSection(_ section: Int) -> String {
-        if let section = HomeSection(rawValue: section) {
-            switch section {
-            case .budget:
-                return String(format: NSLocalizedString("home.budget.header", comment: ""), cashFlow)
-            case .forecast:
-                return NSLocalizedString("home.forecast.header", comment: "")
-            }
+        guard let section = HomeSection(rawValue: section) else {
+            return ""
+        }
+        switch section {
+        case .budget:
+            return String(format: NSLocalizedString("home.budget.header", comment: ""), cashFlow)
+        case .forecast:
+            return NSLocalizedString("home.forecast.header", comment: "")
+        }
+    }
+    
+    func didSelectRowAtIndexPath(_ indexPath: IndexPath) -> Bool {
+        guard HomeSection(rawValue: indexPath.section) == .budget else {
+            return false
+        }
+        guard let budgetRow = BudgetRow(rawValue: indexPath.row) else {
+            return false
         }
         
-        return ""
+        selectedBudgetRow = budgetRow
+        return true
+    }
+    
+    //MARK: View Models
+    
+    func viewModelForBudgetItems() -> BudgetItemsViewModel? {
+        guard let budgetRow = selectedBudgetRow else {
+            return nil
+        }
+        switch budgetRow {
+        case .monthlyIncome:
+            return BudgetItemsViewModel(budgetRow: budgetRow, dataSource: incomeDataSource)
+        case .monthlyExpenses:
+            return BudgetItemsViewModel(budgetRow: budgetRow, dataSource: expenseDataSource)
+        }
     }
 }

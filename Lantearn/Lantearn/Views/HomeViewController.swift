@@ -19,7 +19,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         self.automaticallyAdjustsScrollViewInsets = false
-        title = "Lantearn"
+        title = NSLocalizedString("navigation.title.home", comment: "")
         
         setupTableView()
     }
@@ -56,9 +56,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //MARK: UITableViewDelegate
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewModel.didSelectRowAtIndexPath(indexPath) {
+            performSegue(withIdentifier: Segues.BudgetItems, sender: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.headerTextForSection(section)
     }
     
+    //MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.BudgetItems {
+            let viewController = segue.destination as! BudgetItemsViewController
+            viewController.viewModel = viewModel.viewModelForBudgetItems()
+        }
+    }
+    
 }
-

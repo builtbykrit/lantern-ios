@@ -1,14 +1,15 @@
 //
-//  LantearnUITests.swift
-//  LantearnUITests
+//  HomeViewControllerTests.swift
+//  Lantearn
 //
 //  Created by Kevin Hoffman on 11/18/16.
 //  Copyright © 2016 kehoffman3. All rights reserved.
 //
 
+@testable import Lantearn
 import XCTest
 
-class LantearnUITests: XCTestCase {
+class HomeViewControllerTests: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -28,9 +29,28 @@ class LantearnUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testTapMonthlyExpensesMovesToExpesnses() {
+        let app = XCUIApplication()
+        
+        app.tables.staticTexts["Monthly Expenses"].tap()
+        
+        XCTAssertTrue(app.navigationBars["Expenses"].exists)
+    }
+    
+    func testTapMonthlyIncomeMovesToExpesnses() {
+        let app = XCUIApplication()
+        
+        app.tables.staticTexts["Monthly Income"].tap()
+        
+        XCTAssertTrue(app.navigationBars["Income"].exists)
+    }
+    
+    func testTapForecastRowDoesNothing() {
+        let app = XCUIApplication()
+        
+        app.tables.staticTexts["3 Months"].tap()
+        
+        XCTAssertTrue(app.navigationBars["Lantearn"].exists)
     }
     
 }

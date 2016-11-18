@@ -37,11 +37,30 @@
                     <navigationItem key="navigationItem" id="tAI-Bc-ZzI"/>
                     <connections>
                         <outlet property="tableView" destination="iWo-he-j7w" id="aNB-AO-Xdr"/>
+                        <segue destination="4jG-q7-5QJ" kind="show" identifier="segue.budgetitems" id="uwu-Zp-N2F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Budget Items View Controller-->
+        <scene sceneID="JlF-DF-ntb">
+            <objects>
+                <viewController id="4jG-q7-5QJ" customClass="BudgetItemsViewController" customModule="Lantearn" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LpM-kI-TPd"/>
+                        <viewControllerLayoutGuide type="bottom" id="u5a-BP-XnO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5bL-EK-YjS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gIb-Hv-HW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1842" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nKJ-vE-x1M">

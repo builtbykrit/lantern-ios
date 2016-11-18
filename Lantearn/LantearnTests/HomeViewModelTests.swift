@@ -49,8 +49,6 @@ class HomeViewModelTests: XCTestCase {
         XCTAssertEqual(0, numRows)
     }
     
-    //MARK: UITableViewDelegate
-    
     func testRowTextMonthlyExpensesForIndexPath() {
         let indexPath = IndexPath(row: BudgetRow.monthlyExpenses.rawValue, section: HomeSection.budget.rawValue)
         let text = viewModel.rowTextForIndexPath(indexPath)
@@ -86,6 +84,8 @@ class HomeViewModelTests: XCTestCase {
         let text = viewModel.rowTextForIndexPath(indexPath)
         XCTAssertEqual("", text)
     }
+    
+    //MARK: UITableViewDelegate
     
     func testBudgetSectionHeaderforSection() {
         let text = viewModel.headerTextForSection(HomeSection.budget.rawValue)
@@ -123,5 +123,21 @@ class HomeViewModelTests: XCTestCase {
         let text = viewModel.headerTextForSection(HomeSection.forecast.rawValue)
         XCTAssertEqual("Forecast", text)
     }
+    
+    func testDidSelectMonthlyExpensesRow() {
+        let result = viewModel.didSelectRowAtIndexPath(IndexPath(row: BudgetRow.monthlyExpenses.rawValue, section: HomeSection.budget.rawValue))
+        XCTAssertTrue(result)
+    }
+    
+    func testDidSelectMonthlyIncomeRow() {
+        let result = viewModel.didSelectRowAtIndexPath(IndexPath(row: BudgetRow.monthlyIncome.rawValue, section: HomeSection.budget.rawValue))
+        XCTAssertTrue(result)
+    }
+    
+    func testDidSelectRowInForecast() {
+        let result = viewModel.didSelectRowAtIndexPath(IndexPath(row:ForecastRow.sixMonths.rawValue, section: HomeSection.forecast.rawValue))
+        XCTAssertFalse(result)
+    }
+
     
 }

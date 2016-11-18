@@ -10,7 +10,6 @@
 		0A09BD2C1DDF872200C61F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD2B1DDF872200C61F06 /* AppDelegate.swift */; };
 		0A09BD331DDF872200C61F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A09BD321DDF872200C61F06 /* Assets.xcassets */; };
 		0A09BD361DDF872200C61F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A09BD341DDF872200C61F06 /* LaunchScreen.storyboard */; };
-		0A09BD4C1DDF872200C61F06 /* LantearnUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD4B1DDF872200C61F06 /* LantearnUITests.swift */; };
 		0A09BD5E1DDF88CD00C61F06 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD5D1DDF88CD00C61F06 /* HomeViewController.swift */; };
 		0A09BD611DDF88E100C61F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A09BD5F1DDF88E100C61F06 /* Main.storyboard */; };
 		0A09BD631DDF891400C61F06 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD621DDF891400C61F06 /* HomeViewModelTests.swift */; };
@@ -19,6 +18,11 @@
 		0A09BD691DDF95C200C61F06 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD681DDF95C200C61F06 /* Income.swift */; };
 		0A09BD6B1DDF97F500C61F06 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD6A1DDF97F500C61F06 /* Expense.swift */; };
 		0A09BD6D1DDF980D00C61F06 /* BudgetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD6C1DDF980D00C61F06 /* BudgetItem.swift */; };
+		0A09BD6F1DDF9F8800C61F06 /* BudgetItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD6E1DDF9F8800C61F06 /* BudgetItemsViewController.swift */; };
+		0A09BD711DDF9FB200C61F06 /* BudgetItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD701DDF9FB200C61F06 /* BudgetItemsViewModel.swift */; };
+		0A09BD731DDF9FEA00C61F06 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD721DDF9FEA00C61F06 /* Segues.swift */; };
+		0A09BD751DDFA52700C61F06 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD741DDFA52700C61F06 /* HomeViewControllerTests.swift */; };
+		0A09BD791DDFAA1300C61F06 /* BudgetItemsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD781DDFAA1300C61F06 /* BudgetItemsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +51,6 @@
 		0A09BD3C1DDF872200C61F06 /* LantearnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LantearnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A09BD421DDF872200C61F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A09BD471DDF872200C61F06 /* LantearnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LantearnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A09BD4B1DDF872200C61F06 /* LantearnUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LantearnUITests.swift; sourceTree = "<group>"; };
 		0A09BD4D1DDF872200C61F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A09BD5D1DDF88CD00C61F06 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Views/HomeViewController.swift; sourceTree = "<group>"; };
 		0A09BD601DDF88E100C61F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +60,11 @@
 		0A09BD681DDF95C200C61F06 /* Income.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Income.swift; path = Models/Income.swift; sourceTree = "<group>"; };
 		0A09BD6A1DDF97F500C61F06 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Expense.swift; path = Models/Expense.swift; sourceTree = "<group>"; };
 		0A09BD6C1DDF980D00C61F06 /* BudgetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BudgetItem.swift; path = Models/BudgetItem.swift; sourceTree = "<group>"; };
+		0A09BD6E1DDF9F8800C61F06 /* BudgetItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BudgetItemsViewController.swift; path = Views/BudgetItemsViewController.swift; sourceTree = "<group>"; };
+		0A09BD701DDF9FB200C61F06 /* BudgetItemsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BudgetItemsViewModel.swift; path = "View Models/BudgetItemsViewModel.swift"; sourceTree = "<group>"; };
+		0A09BD721DDF9FEA00C61F06 /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
+		0A09BD741DDFA52700C61F06 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		0A09BD781DDFAA1300C61F06 /* BudgetItemsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetItemsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +124,7 @@
 				0A09BD341DDF872200C61F06 /* LaunchScreen.storyboard */,
 				0A09BD371DDF872200C61F06 /* Info.plist */,
 				0A09BD661DDF8E4700C61F06 /* Localizable.strings */,
+				0A09BD721DDF9FEA00C61F06 /* Segues.swift */,
 			);
 			path = Lantearn;
 			sourceTree = "<group>";
@@ -125,6 +134,7 @@
 			children = (
 				0A09BD421DDF872200C61F06 /* Info.plist */,
 				0A09BD621DDF891400C61F06 /* HomeViewModelTests.swift */,
+				0A09BD781DDFAA1300C61F06 /* BudgetItemsViewModelTests.swift */,
 			);
 			path = LantearnTests;
 			sourceTree = "<group>";
@@ -132,8 +142,8 @@
 		0A09BD4A1DDF872200C61F06 /* LantearnUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0A09BD4B1DDF872200C61F06 /* LantearnUITests.swift */,
 				0A09BD4D1DDF872200C61F06 /* Info.plist */,
+				0A09BD741DDFA52700C61F06 /* HomeViewControllerTests.swift */,
 			);
 			path = LantearnUITests;
 			sourceTree = "<group>";
@@ -152,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0A09BD5D1DDF88CD00C61F06 /* HomeViewController.swift */,
+				0A09BD6E1DDF9F8800C61F06 /* BudgetItemsViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -160,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				0A09BD641DDF89C600C61F06 /* HomeViewModel.swift */,
+				0A09BD701DDF9FB200C61F06 /* BudgetItemsViewModel.swift */,
 			);
 			name = "View Models";
 			sourceTree = "<group>";
@@ -252,6 +264,7 @@
 					0A09BD461DDF872200C61F06 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = CWB93M4P7M;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0A09BD271DDF872200C61F06;
 					};
@@ -314,7 +327,10 @@
 				0A09BD651DDF89C600C61F06 /* HomeViewModel.swift in Sources */,
 				0A09BD691DDF95C200C61F06 /* Income.swift in Sources */,
 				0A09BD6D1DDF980D00C61F06 /* BudgetItem.swift in Sources */,
+				0A09BD6F1DDF9F8800C61F06 /* BudgetItemsViewController.swift in Sources */,
 				0A09BD5E1DDF88CD00C61F06 /* HomeViewController.swift in Sources */,
+				0A09BD711DDF9FB200C61F06 /* BudgetItemsViewModel.swift in Sources */,
+				0A09BD731DDF9FEA00C61F06 /* Segues.swift in Sources */,
 				0A09BD6B1DDF97F500C61F06 /* Expense.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A09BD791DDFAA1300C61F06 /* BudgetItemsViewModelTests.swift in Sources */,
 				0A09BD631DDF891400C61F06 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A09BD4C1DDF872200C61F06 /* LantearnUITests.swift in Sources */,
+				0A09BD751DDFA52700C61F06 /* HomeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,11 +538,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = CWB93M4P7M;
 				INFOPLIST_FILE = LantearnUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kehoffman3.LantearnUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Lantearn;
 			};
@@ -535,6 +554,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = CWB93M4P7M;
 				INFOPLIST_FILE = LantearnUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
