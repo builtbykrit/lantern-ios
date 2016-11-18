@@ -48,8 +48,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.textLabel?.text = viewModel.rowTextForIndexPath(indexPath)
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        let rowData = viewModel.rowDataForIndexPath(indexPath)
+        cell.textLabel?.text = rowData.name
+        cell.detailTextLabel?.text = rowData.value
         
         return cell
     }

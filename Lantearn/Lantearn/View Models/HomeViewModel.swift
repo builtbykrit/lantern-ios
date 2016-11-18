@@ -22,21 +22,39 @@ enum BudgetRow: Int {
     static let enumerate = [monthlyExpenses, monthlyIncome]
 }
 
-enum ForecastRow: Int {
-    case threeMonths
-    case sixMonths
-    case twelveMonths
+struct RowData {
+    var name: String
+    var value: String
     
-    static let enumerate = [threeMonths, sixMonths, twelveMonths]
+    init() {
+        self.name = "Item"
+        self.value = "0"
+    }
+    
+    init(name: String, value: String) {
+        self.name = name
+        self.value = value
+    }
 }
-
 
 class HomeViewModel {
     
+    fileprivate var forecast:Forecast
+    
     fileprivate var cashFlow:Int {
-        let expense = expenseDataSource.reduce(0) { $0 + $1.amount }
-        let income = incomeDataSource.reduce(0) { $0 + $1.amount }
-        return income - expense
+        get {
+            return income - expenses
+        } set(newCashFlow) {
+            forecast = Forecast(cashFlow: newCashFlow)
+        }
+    }
+    
+    fileprivate var income: Int {
+        return incomeDataSource.reduce(0) { $0 + $1.amount }
+    }
+    
+    fileprivate var expenses:Int {
+        return expenseDataSource.reduce(0) { $0 + $1.amount }
     }
     
     var selectedBudgetRow: BudgetRow?
@@ -68,32 +86,32 @@ class HomeViewModel {
     
     //MARK: UITableViewDelegate
     
-    func rowTextForIndexPath(_ indexPath: IndexPath) -> String {
+    func rowDataForIndexPath(_ indexPath: IndexPath) -> RowData {
         guard let section = HomeSection(rawValue: indexPath.section) else {
-            return ""
+            return RowData()
         }
         switch section {
         case .budget:
             guard let row = BudgetRow(rawValue: indexPath.row) else {
-                return ""
+                return RowData()
             }
             switch row {
             case .monthlyExpenses:
-                return NSLocalizedString("home.budget.expenses", comment: "")
+                return RowData(name: NSLocalizedString("home.budget.expenses", comment: ""), value: "\(expenses)")
             case .monthlyIncome:
-                return NSLocalizedString("home.budget.income", comment: "")
+                return RowData(name: NSLocalizedString("home.budget.income", comment: ""), value: "\(income)")
             }
         case .forecast:
             guard let row = ForecastRow(rawValue: indexPath.row) else {
-                return ""
+                return RowData()
             }
             switch row {
             case .threeMonths:
-                return NSLocalizedString("home.forecast.three", comment: "")
+                return RowData(name: NSLocalizedString("home.forecast.three", comment: ""), value: "\(forecast.threeMonths)")
             case .sixMonths:
-                return NSLocalizedString("home.forecast.six", comment: "")
+                return RowData(name: NSLocalizedString("home.forecast.six", comment: ""), value: "\(forecast.sixMonths)")
             case .twelveMonths:
-                return NSLocalizedString("home.forecast.twelve", comment: "")
+                return RowData(name: NSLocalizedString("home.forecast.twelve", comment: ""), value: "\(forecast.tweleveMonths)")
             }
         }
     }

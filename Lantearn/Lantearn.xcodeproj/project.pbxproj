@@ -23,6 +23,7 @@
 		0A09BD731DDF9FEA00C61F06 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD721DDF9FEA00C61F06 /* Segues.swift */; };
 		0A09BD751DDFA52700C61F06 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD741DDFA52700C61F06 /* HomeViewControllerTests.swift */; };
 		0A09BD791DDFAA1300C61F06 /* BudgetItemsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD781DDFAA1300C61F06 /* BudgetItemsViewModelTests.swift */; };
+		0A09BD7B1DDFAE3E00C61F06 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A09BD7A1DDFAE3E00C61F06 /* Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		0A09BD721DDF9FEA00C61F06 /* Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		0A09BD741DDFA52700C61F06 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		0A09BD781DDFAA1300C61F06 /* BudgetItemsViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BudgetItemsViewModelTests.swift; sourceTree = "<group>"; };
+		0A09BD7A1DDFAE3E00C61F06 /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Forecast.swift; path = Models/Forecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				0A09BD681DDF95C200C61F06 /* Income.swift */,
 				0A09BD6A1DDF97F500C61F06 /* Expense.swift */,
 				0A09BD6C1DDF980D00C61F06 /* BudgetItem.swift */,
+				0A09BD7A1DDFAE3E00C61F06 /* Forecast.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				0A09BD651DDF89C600C61F06 /* HomeViewModel.swift in Sources */,
 				0A09BD691DDF95C200C61F06 /* Income.swift in Sources */,
 				0A09BD6D1DDF980D00C61F06 /* BudgetItem.swift in Sources */,
+				0A09BD7B1DDFAE3E00C61F06 /* Forecast.swift in Sources */,
 				0A09BD6F1DDF9F8800C61F06 /* BudgetItemsViewController.swift in Sources */,
 				0A09BD5E1DDF88CD00C61F06 /* HomeViewController.swift in Sources */,
 				0A09BD711DDF9FB200C61F06 /* BudgetItemsViewModel.swift in Sources */,
