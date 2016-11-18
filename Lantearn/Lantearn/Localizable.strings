@@ -8,8 +8,10 @@
 
 
 "home.budget.expenses" = "Monthly Expenses";
+"home.budget.header" = "Monthly Cash Flow: $%d";
 "home.budget.income" = "Monthly Income";
 "home.forecast.flow" = "Cash Flow";
+"home.forecast.header" = "Forecast";
 "home.forecast.three" = "3 Months";
 "home.forecast.six" = "6 Months";
 "home.forecast.nine" = "9 Months";

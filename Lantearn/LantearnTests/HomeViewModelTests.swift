@@ -11,7 +11,7 @@ import XCTest
 
 class HomeViewModelTests: XCTestCase {
     
-    let viewModel = HomeViewModel()
+    let viewModel = HomeViewModel(expenseDataSource: [Expense](), incomeDataSource: [Income]())
     
     override func setUp() {
         super.setUp()
@@ -40,7 +40,7 @@ class HomeViewModelTests: XCTestCase {
     func testNumberOfRowsInForecastSection() {
         
         let numRows = viewModel.numberOfRowsInSection(HomeSection.forecast.rawValue)
-        XCTAssertEqual(4, numRows)
+        XCTAssertEqual(3, numRows)
     }
     
     func testNumberOfRowsInInvalidSection() {
@@ -61,12 +61,6 @@ class HomeViewModelTests: XCTestCase {
         let indexPath = IndexPath(row: BudgetRow.monthlyIncome.rawValue, section: HomeSection.budget.rawValue)
         let text = viewModel.rowTextForIndexPath(indexPath)
         XCTAssertEqual("Monthly Income", text)
-    }
-    
-    func testRowTextCashFlowForIndexPath() {
-        let indexPath = IndexPath(row: ForecastRow.cashFlow.rawValue, section: HomeSection.forecast.rawValue)
-        let text = viewModel.rowTextForIndexPath(indexPath)
-        XCTAssertEqual("Cash Flow", text)
     }
     
     func testRowText3MonthsForIndexPath() {
@@ -91,6 +85,43 @@ class HomeViewModelTests: XCTestCase {
         let indexPath = IndexPath(row: 5, section: 4)
         let text = viewModel.rowTextForIndexPath(indexPath)
         XCTAssertEqual("", text)
+    }
+    
+    func testBudgetSectionHeaderforSection() {
+        let text = viewModel.headerTextForSection(HomeSection.budget.rawValue)
+        
+        XCTAssertEqual("Monthly Cash Flow: $0", text)
+    }
+    
+    func testBudgetSectionHeaderWithIncome() {
+        let incomeItem = Income(name: "Job", amount: 2000)
+        viewModel.incomeDataSource = [incomeItem]
+        
+        let text = viewModel.headerTextForSection(HomeSection.budget.rawValue)
+        XCTAssertEqual("Monthly Cash Flow: $2000", text)
+    }
+    
+    func testBudgetSectionHeaderWithExpense() {
+        let expenseItem = Expense(name: "Rent", amount: 1200)
+        viewModel.expenseDataSource = [expenseItem]
+        
+        let text = viewModel.headerTextForSection(HomeSection.budget.rawValue)
+        XCTAssertEqual("Monthly Cash Flow: $-1200", text)
+    }
+    
+    func testBudgetSectionHeaderWithBoth() {
+        let incomeItem = Income(name: "Job", amount: 2000)
+        viewModel.incomeDataSource = [incomeItem]
+        let expenseItem = Expense(name: "Rent", amount: 1200)
+        viewModel.expenseDataSource = [expenseItem]
+        
+        let text = viewModel.headerTextForSection(HomeSection.budget.rawValue)
+        XCTAssertEqual("Monthly Cash Flow: $800", text)
+    }
+    
+    func testForecastSectionHeaderForSection() {
+        let text = viewModel.headerTextForSection(HomeSection.forecast.rawValue)
+        XCTAssertEqual("Forecast", text)
     }
     
 }

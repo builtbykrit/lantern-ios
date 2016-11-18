@@ -23,16 +23,29 @@ enum BudgetRow: Int {
 }
 
 enum ForecastRow: Int {
-    case cashFlow
     case threeMonths
     case sixMonths
     case twelveMonths
     
-    static let enumerate = [cashFlow, threeMonths, sixMonths, twelveMonths]
+    static let enumerate = [threeMonths, sixMonths, twelveMonths]
 }
 
 
 class HomeViewModel {
+    
+    fileprivate var cashFlow:Int {
+        let expense = expenseDataSource.reduce(0) { $0 + $1.amount }
+        let income = incomeDataSource.reduce(0) { $0 + $1.amount }
+        return income - expense
+    }
+    
+    var expenseDataSource: [Expense]
+    var incomeDataSource: [Income]
+    
+    init(expenseDataSource: [Expense], incomeDataSource: [Income]) {
+        self.expenseDataSource = expenseDataSource
+        self.incomeDataSource = incomeDataSource
+    }
     
     //MARK: UITableViewDataSource
     
@@ -70,8 +83,6 @@ class HomeViewModel {
             case .forecast:
                 if let row = ForecastRow(rawValue: indexPath.row) {
                     switch row {
-                    case .cashFlow:
-                        return NSLocalizedString("home.forecast.flow", comment: "")
                     case .threeMonths:
                         return NSLocalizedString("home.forecast.three", comment: "")
                     case .sixMonths:
@@ -80,6 +91,19 @@ class HomeViewModel {
                         return NSLocalizedString("home.forecast.twelve", comment: "")
                     }
                 }
+            }
+        }
+        
+        return ""
+    }
+    
+    func headerTextForSection(_ section: Int) -> String {
+        if let section = HomeSection(rawValue: section) {
+            switch section {
+            case .budget:
+                return String(format: NSLocalizedString("home.budget.header", comment: ""), cashFlow)
+            case .forecast:
+                return NSLocalizedString("home.forecast.header", comment: "")
             }
         }
         
